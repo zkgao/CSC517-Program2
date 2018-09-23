@@ -1,0 +1,57 @@
+<%= form_with(model: real_estate_company, local: true) do |form| %>
+  <% if real_estate_company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(real_estate_company.errors.count, "error") %> prohibited this real_estate_company from being saved:</h2>
+
+      <ul>
+      <% real_estate_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Id %>
+    <%= form.number_field :Id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Webstie %>
+    <%= form.text_field :Webstie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address %>
+    <%= form.text_field :Address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Size %>
+    <%= form.text_field :Size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Founded %>
+    <%= form.text_field :Founded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Revenue %>
+    <%= form.text_field :Revenue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Synopsis %>
+    <%= form.text_field :Synopsis %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

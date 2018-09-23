@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Real Estate Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Webstie</th>
+      <th>Address</th>
+      <th>Size</th>
+      <th>Founded</th>
+      <th>Revenue</th>
+      <th>Synopsis</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @real_estate_companies.each do |real_estate_company| %>
+      <tr>
+        <td><%= real_estate_company.Id %></td>
+        <td><%= real_estate_company.Name %></td>
+        <td><%= real_estate_company.Webstie %></td>
+        <td><%= real_estate_company.Address %></td>
+        <td><%= real_estate_company.Size %></td>
+        <td><%= real_estate_company.Founded %></td>
+        <td><%= real_estate_company.Revenue %></td>
+        <td><%= real_estate_company.Synopsis %></td>
+        <td><%= link_to 'Show', real_estate_company %></td>
+        <td><%= link_to 'Edit', edit_real_estate_company_path(real_estate_company) %></td>
+        <td><%= link_to 'Destroy', real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Real Estate Company', new_real_estate_company_path %>
