@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_215523) do
+ActiveRecord::Schema.define(version: 2018_09_27_223612) do
 
   create_table "admins", primary_key: "email", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
@@ -18,7 +18,13 @@ ActiveRecord::Schema.define(version: 2018_09_27_215523) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
-  create_table "real_estate_companies", force: :cascade do |t|
+  create_table "houses", force: :cascade do |t|
+    t.string "Location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "real_estate_companies", primary_key: "Id", force: :cascade do |t|
     t.string "Name"
     t.string "Webstie"
     t.string "Address"
