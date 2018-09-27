@@ -1,6 +1,8 @@
 class RealEstateCompaniesController < ApplicationController
-  #before_action :authenticate_user!
+  # ask for login before action
+  before_action :authenticate_user!
   before_action :set_real_estate_company, only: [:show, :edit, :update, :destroy]
+
 
   # GET /real_estate_companies
   # GET /real_estate_companies.json
