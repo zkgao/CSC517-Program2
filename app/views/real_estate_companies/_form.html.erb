@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :Webstie %>
-    <%= form.text_field :Webstie %>
+    <%= form.url_field :Webstie %>
   </div>
 
   <div class="field">
@@ -33,22 +33,22 @@
 
   <div class="field">
     <%= form.label :Size %>
-    <%= form.text_field :Size %>
+    <%= form.select :Size, RealEstateCompany.sizes.keys %>
   </div>
 
   <div class="field">
     <%= form.label :Founded %>
-    <%= form.text_field :Founded %>
+    <%= form.select :Founded, 1900..2019%>
   </div>
 
   <div class="field">
     <%= form.label :Revenue %>
-    <%= form.text_field :Revenue %>
+    <%= form.range_field :Revenue, in: 100..500 , step: '1'%>
   </div>
 
   <div class="field">
     <%= form.label :Synopsis %>
-    <%= form.text_field :Synopsis %>
+    <%= form.text_area :Synopsis %>
   </div>
 
   <div class="actions">
