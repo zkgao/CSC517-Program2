@@ -3,24 +3,41 @@
 <h1>Houses</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th>House_id </th>
+    <th>Location </th>
+    <th>Square_footage </th>
+    <th>Year_built </th>
+    <th>Style </th>
+    <th>List_price </th>
+    <th>Floors </th>
+    <th>Basement </th>
+    <th>Current_house_owner </th>
+    <th>Contact_information_for_listing_realtor </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
   <tbody>
-    <% @houses.each do |house| %>
+    <% if !@houses.nil? then @houses.each do |house| %>
       <tr>
-        <td><%= house.Id %></td>
-        <td><%= house.Location %></td>
+        <td><%= house.house_id %></td>
+        <td><%= house.location %></td>
+        <td><%= house.square_footage %></td>
+        <td><%= house.year_built %></td>
+        <td><%= house.style %></td>
+        <td><%= house.list_price %></td>
+        <td><%= house.floors %></td>
+        <td><%= house.basement %></td>
+        <td><%= house.current_house_owner %></td>
+        <td><%= house.contact_information_for_listing_realtor %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
         <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 

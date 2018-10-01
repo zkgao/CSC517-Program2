@@ -1,14 +1,63 @@
 <p id="notice"><%= notice %></p>
 
+<% if @picture != nil %>
+    <p>
+      <b>Picture:</b><br>
+      <img src=" <%= @picture.picture_url %>" style="height: 200px; width: 200px">
+    </p>
+<% end %>
+
 <p>
-  <strong>Id:</strong>
-  <%= @house.Id %>
+  <b>House_id:</b>
+  <%= @house.house_id %>
 </p>
 
 <p>
-  <strong>Location:</strong>
-  <%= @house.Location %>
+  <b>Location:</b>
+  <%= @house.location %>
 </p>
 
+<p>
+  <b>Square_footage:</b>
+  <%= @house.square_footage %>
+</p>
+
+<p>
+  <b>Year_built:</b>
+  <%= @house.year_built %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @house.style %>
+</p>
+
+<p>
+  <b>List_price:</b>
+  <%= @house.list_price %>
+</p>
+
+<p>
+  <b>Floors:</b>
+  <%= @house.floors %>
+</p>
+
+<p>
+  <b>Basement:</b>
+  <%= @house.basement %>
+</p>
+
+<p>
+  <b>Current_house_owner:</b>
+  <%= @house.current_house_owner %>
+</p>
+
+<p>
+  <b>Contact_information_for_listing_realtor:</b>
+  <%= @house.contact_information_for_listing_realtor %>
+</p>
+
+<%= link_to 'Potential Buyers', houses_path %>
+<%= link_to 'Pictures', pictures_url(@house) %>
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>

@@ -12,15 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Id %>
-    <%= form.number_field :Id %>
+    <%= form.label :location %><br>
+    <%= form.text_area :location %>
   </div>
-
   <div class="field">
-    <%= form.label :Location %>
-    <%= form.text_field :Location %>
+    <%= form.label :square_footage %><br>
+    <%= form.text_area :square_footage %>
   </div>
-
+  <div class="field">
+    <%= form.label :year_built %><br>
+    <%= form.text_area :year_built %>
+  </div>
+  <div class="field" >
+    <%= form.label :style%><br>
+    <select name = "house[style]">
+      <option value = "Single family house" selected = "selected">Single family house</option>
+      <option value = "Apartment">Apartment</option>
+      <option value = "Condos">Condos</option>
+  </select>
+  </div>
+  <div class="field">
+    <%= form.label :list_price %><br>
+    <%= form.text_area :list_price %>
+  </div>
+  <div class="field">
+    <%= form.label :floors %><br>
+    <%= form.text_area :floors %>
+  </div>
+  <div class="field">
+    <%= form.label :basement %><br>
+    <select name = "house[basement]">
+      <option value = "Yes" selected = "selected">Yes</option>
+      <option value = "No">No</option>
+    </select>
+  </div>
+  <div class="field">
+    <%= form.label :current_house_owner %><br>
+    <%= form.text_area :current_house_owner %>
+  </div>
+  <div class="field">
+    <%= form.label :contact_information_for_listing_realtor %><br>
+    <%= form.text_area :contact_information_for_listing_realtor %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

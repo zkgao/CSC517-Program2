@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Picture:</strong>
+  <img src=" <%= @picture.picture_url %> " style="height: 900px; width: 900px">
+</p>
+
+<%= link_to 'Back', pictures_path(@picture.house_id) %>
