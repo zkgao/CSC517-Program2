@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
 
   # GET /real_estate_companies/new
   def new
-    @user= User.new
+    @user = User.new
   end
 
   # GET /real_estate_companies/1/edit
@@ -19,10 +21,10 @@ class UsersController < ApplicationController
   # POST /real_estate_companies
   # POST /real_estate_companies.json
   def create
-    @user= User.new(user_params)
+    @user = User.new(user_params)
 
     respond_to do |format|
-      if @real_estate_company.save
+      if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user}
       else
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to iser_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to user_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
