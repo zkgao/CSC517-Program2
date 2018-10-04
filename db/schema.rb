@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2018_10_01_223200) do
   end
 
   create_table "houses", force: :cascade do |t|
+    t.string "location"
+    t.string "square_footage"
+    t.integer "year_built"
+    t.string "style", limit: 19
+    t.integer "list_price"
+    t.integer "floors"
+    t.string "basement", limit: 3
+    t.string "current_house_owner"
+    t.string "contact_information_for_listing_realtor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

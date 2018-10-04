@@ -28,7 +28,6 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
-    @picture.house_id = params[:house_id]
 
     respond_to do |format|
       if @picture.save
@@ -66,6 +65,7 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

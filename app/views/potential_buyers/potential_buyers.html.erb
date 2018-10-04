@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Potential_buyers</h1>
+
+<table>
+  <tr>
+    <th>Email </th>
+    <th>Name </th>
+    <th>Phone </th>
+    <th>Preferred Contact Method</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tbody>
+  <%  @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<td><%= link_to 'back', :back  %></td>
+
+<br>
+

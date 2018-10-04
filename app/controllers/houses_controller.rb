@@ -58,7 +58,7 @@ class HousesController < ApplicationController
 
   # PATCH/PUT /houses/1
   # PATCH/PUT /houses/1.json
-  def updatemain
+  def update
 
     respond_to do |format|
       if @house.update(house_params)
@@ -81,6 +81,11 @@ class HousesController < ApplicationController
       format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def potential_buyers
+    @potential_buyers = Potential_buyers.select('buyer_id').where(house_id: params[:house_id])
+
   end
 
   private

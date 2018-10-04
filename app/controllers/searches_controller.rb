@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @search = Search.find(params[:id])
+    @search = Search.find(params[:house_id])
   end
   private
   def search_params
