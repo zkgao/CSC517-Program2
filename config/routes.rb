@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get '/houses/potential_buyers/:house_id', to: 'potential_buyers#potential_buyers'
   resources :houses
   resources :pictures
-
-
   devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
