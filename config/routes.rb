@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/houses/potential_buyers/:house_id', to: 'potential_buyers#potential_buyers'
   resources :houses
   resources :pictures
+  post '/houses/:house_id', to: 'houses#reply'
 
 
   devise_for :admins
