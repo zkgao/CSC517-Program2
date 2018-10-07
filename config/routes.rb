@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :inquiries
   devise_for :users
   resources :users
   resources :real_estate_companies
   resources :searches
-  get '/houses/potential_buyers/:house_id', to: 'potential_buyers#potential_buyers'
   resources :houses
   resources :pictures
-  devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "home#index"
 
-  get "/iamgoddamnadmin" => "home#adminindex"
+  get '/houses/potential_buyers/:house_id', to: 'potential_buyers#potential_buyers'
+  get "/adminmanage" => "home#adminindex"
 end

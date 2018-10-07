@@ -11,12 +11,10 @@ class UsersController < ApplicationController
   def show
   end
 
-  # GET /real_estate_companies/new
   def new
     @user = User.new
   end
 
-  # GET /real_estate_companies/1/edit
   def edit
   end
 
