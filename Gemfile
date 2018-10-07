@@ -5,8 +5,8 @@ ruby '2.5.1'
 
 gem 'carrierwave'
 
-gem 'devise'
-
+#gem 'devise'
+gem 'pg'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
