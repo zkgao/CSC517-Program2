@@ -1,32 +1,30 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>AAll Users</h1>
 
-<table>
+<table id="users">
   <thead>
-    <tr>
-      <th>id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
-
   <tbody>
-    <% @users.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
-        <td><%= user.Id %></td>
-        <td><%= user.Name %></td>
-        <td><%= user.email %></td>
-        <td><%=  %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <th><%= user.id %></th>
+      <th><%= user.name %></th>
+      <th><%= user.email %></th>
+      <th><%= link_to "Edit", edit_user_path(user) %></th>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
-</table>
 
-<br>
+
+</table>
 
 <%= link_to 'New User', new_user_path %>
 <br>

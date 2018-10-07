@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :inquiries
   devise_for :users
-  resources :users
+  scope "/admins" do
+    resources :users
+  end
   resources :real_estate_companies
   resources :searches
   resources :houses
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
 
   get '/houses/potential_buyers/:house_id', to: 'potential_buyers#potential_buyers'
   get "/adminmanage" => "home#adminindex"
+  get "/admin/users" => "users#index"
 end
