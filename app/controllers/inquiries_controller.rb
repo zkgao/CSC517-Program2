@@ -25,7 +25,6 @@ class InquiriesController < ApplicationController
   # POST /inquiries.json
   def create
     @inquiry = Inquiry.new(inquiry_params)
-
     respond_to do |format|
       if @inquiry.save
         format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }

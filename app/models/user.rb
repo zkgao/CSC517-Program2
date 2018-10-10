@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+ 
   enum role: [:realtor,:househunter, :admin]
   after_initialize :set_default_role, :if => :new_record?
   def set_default_role
@@ -10,8 +11,12 @@ class User < ApplicationRecord
         self.role ||= :admin
       else
         self.role ||= :househunter
-     # end
+      end
   end
+  def realtor?
+    if ( companyid == nil )
+      false
+    else true
   def change_role
     if self.role == :househunter
       self.role ||= :realtor
