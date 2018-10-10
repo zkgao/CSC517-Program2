@@ -20,8 +20,8 @@ class User < ApplicationRecord
   end
 
   enum roles: {
-      'Realtor' => 'realtor',
-      'House Hunter' => 'house_hunter'
+      'realtor' => 'realtor',
+      'househunter' => 'house_hunter'
   }
   validates :role, inclusion: roles.keys
 end

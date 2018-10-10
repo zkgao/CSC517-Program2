@@ -11,12 +11,12 @@
 
   <body>
 
-  <% if current_user %>
+  <% if admin_signed_in? %>
+    <%= link_to('log out', destroy_admin_session_path, :method => :delete) %>
+    <%= link_to('edit admin profile', edit_admin_registration_path(:user))  %>
+  <% elsif user_signed_in? %>
     <%= link_to('log out', destroy_user_session_path, :method => :delete) %> |
     <%= link_to('edit profile', edit_registration_path(:user)) %>
-  <% elsif current_admin %>
-    <%= link_to('log out', destroy_admin_session_path, :method => :delete) %>
-    <%= link_to('edit profile', edit_admin_registration_path(:user))  %>
   <% else %>
     <%= link_to('register', new_registration_path(:user)) %> |
     <%= link_to('log in', new_session_path(:user)) %>
