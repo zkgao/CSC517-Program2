@@ -1,6 +1,6 @@
 class RealEstateCompaniesController < ApplicationController
   # ask for login before action
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_real_estate_company, only: [:show, :edit, :update, :destroy]
 
 
@@ -67,11 +67,11 @@ class RealEstateCompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_real_estate_company
-      @real_estate_company = RealEstateCompany.find(params[:house_id])
+      @real_estate_company = RealEstateCompany.find(params[:real_estate_companies_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def real_estate_company_params
-      params.require(:real_estate_company).permit(:Id, :Name, :Webstie, :Address, :Size, :Founded, :Revenue, :Synopsis)
+      params.require(:real_estate_company).permit(:id, :Name, :Webstie, :Address, :Size, :Founded, :Revenue, :Synopsis)
     end
 end

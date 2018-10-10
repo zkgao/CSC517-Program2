@@ -1,20 +1,29 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
+  # before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @users }
+    end
   end
 
   def show
   end
 
-  # GET /real_estate_companies/new
   def new
     @user = User.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @user }
+    end
   end
 
-  # GET /real_estate_companies/1/edit
   def edit
   end
 
@@ -38,12 +47,16 @@ class UsersController < ApplicationController
   # PATCH/PUT /real_estate_companies/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user}
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+      if @user.update_attributes(user_params)
+        format.html { redirect_to @user, :notice => 'User was successfully updated.' }
+        format.json { head :ok }
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -51,6 +64,7 @@ class UsersController < ApplicationController
   # DELETE /real_estate_companies/1
   # DELETE /real_estate_companies/1.json
   def destroy
+    puts 'asdfasdf'
     @user.destroy
     respond_to do |format|
       format.html { redirect_to user_url, notice: 'User was successfully destroyed.' }
@@ -66,6 +80,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:Id, :Name, :email,:role)
+    params.require(:user).permit(:id, :name, :email, :password, :password_confirmation)
   end
 end
