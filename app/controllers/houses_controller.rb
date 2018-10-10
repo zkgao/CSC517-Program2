@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-
+  before_action
   # GET /houses
   # GET /houses.json
 
@@ -14,11 +14,20 @@ class HousesController < ApplicationController
     end
   end
 
+
   # GET /houses/1
   # GET /houses/1.json
   def show
-
     @picture = Picture.find_by(house_id: @house.house_id)
+    @inquiries = Inquiry.where(houseid: @house.house_id)
+    @user_ids = @inquiries.select('userid')
+    userids = Array.new(@user_ids.length)
+
+    @user_ids.each do |id|
+      userids.push(id.userid)
+    end
+
+    @users = User.find(userids)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,6 +97,19 @@ class HousesController < ApplicationController
 
   end
 
+  def reply
+    @inquiry = Inquiry.find(params[:inquiry][:id])
+    respond_to do |format|
+      if @inquiry.update(inquiry_params)
+        format.html { redirect_to '/houses/' + @inquiry.houseid.to_s }
+        format.json { head :no_content }
+      else
+        format.html { render :edit }
+        format.json { render json: @house.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_house
@@ -98,5 +120,9 @@ class HousesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def house_params
     params.require(:house).permit(:house_id, :location, :square_footage, :year_built, :style, :list_price, :floors, :basement, :current_house_owner, :contact_information_for_listing_realtor)
+  end
+
+  def inquiry_params
+    params.require(:inquiry).permit(:id, :reply )
   end
 end

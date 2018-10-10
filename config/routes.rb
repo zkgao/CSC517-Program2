@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :users
+  resources :interests
   resources :inquiries
   devise_for :users
   scope "/admins" do
@@ -9,6 +10,11 @@ Rails.application.routes.draw do
   resources :searches
   resources :houses
   resources :pictures
+  post '/houses/:house_id', to: 'houses#reply'
+  get '/users/inquiries/:userid', to: 'inquires#hshow'
+
+
+  devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "home#index"
