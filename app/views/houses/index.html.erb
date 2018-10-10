@@ -4,7 +4,6 @@
 
 <table>
   <tr>
-    <th>House_id </th>
     <th>Location </th>
     <th>Square_footage </th>
     <th>Year_built </th>
@@ -22,7 +21,6 @@
   <tbody>
     <% if !@houses.nil? then @houses.each do |house| %>
       <tr>
-        <td><%= house.house_id %></td>
         <td><%= house.location %></td>
         <td><%= house.square_footage %></td>
         <td><%= house.year_built %></td>

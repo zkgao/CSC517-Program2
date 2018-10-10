@@ -15,8 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-        <td><%= user.Id %></td>
-        <td><%= user.Name %></td>
+        <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%=  %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
