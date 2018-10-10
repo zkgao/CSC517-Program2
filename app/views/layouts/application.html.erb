@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
   <% if current_user %>
     <%= link_to('log out', destroy_user_session_path, :method => :delete) %> |
     <%= link_to('edit profile', edit_registration_path(:user)) %>
