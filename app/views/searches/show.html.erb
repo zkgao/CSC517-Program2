@@ -1,0 +1,15 @@
+<h1>Search Result</h1>
+<p><%= link_to 'New Search',new_searches_path %></p>
+<% if @search.find_houses.empty? %>
+  <p>Sorry, No Record</p>
+<% else %>
+<% @search.find_houses.each do |t| %>
+    <br>
+    <div>
+      <p>house id: <%= t.house_id%></p>
+      <p>location: <%=t.location %></p>
+      <p>square footage: <%t.square_footage %></p>
+    </div>
+  <% end %>
+  <% end %>
+  # :house_id, :location, :square_footage, :year_built, :style, :list_price, :floors, :basement, :current_house_owner

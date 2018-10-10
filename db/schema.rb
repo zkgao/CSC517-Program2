@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 2018_10_10_063020) do
 
   create_table "searches", force: :cascade do |t|
     t.integer "companyid"
-    t.decimal "square"
-    t.decimal "price"
+    t.decimal "minprice"
+    t.decimal "maxprice"
     t.integer "yearbuilt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
