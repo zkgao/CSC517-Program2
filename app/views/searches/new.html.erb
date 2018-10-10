@@ -1,0 +1,16 @@
+<h1>House Search</h1>
+<%= form_for @search, html:{class: "pure-form"} do |s| %>
+<div class="field">
+  <%=s.label :yearbuild %><br />
+  <%=s.text_field :yearbuild %>
+</div>
+  <div class="field">
+    <p><%=s.label :minprice,"Min Price" %> - <%=s.text_field :minprice,size: 10 %></p>
+    <p><%=s.label :minprice,"Max Price" %> - <%=s.text_field :maxprice,size: 10 %></p>
+  </div>
+  <div class="field">
+    <p><%=s.label :minprice,"Min Square Footage" %> - <%=s.text_field :minsquare,size: 10 %></p>
+    <p><%=s.label :minprice,"Max Square Footage" %> - <%=s.text_field :maxsquare,size: 10 %></p>
+  </div>
+  <divclass="actions"><%=s.submit "Search",class: "pure-button pure-button-primary" %></divclass>
+<%end %>

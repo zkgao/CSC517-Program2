@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :interests
   resources :inquiries
-  devise_for :users
+ resources :users
   scope "/admins" do
     resources :users
   end

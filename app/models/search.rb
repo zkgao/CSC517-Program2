@@ -1,7 +1,6 @@
 class Search < ApplicationRecord
   def find_houses
     houses=House.all
-    houses=houses.where(companyid: companyid) if companyid.present?
     houses=houses.where(year_built: yearbuilt) if yearbuilt.present?
     houses=houses.where("price >= ?", minprice) if minprice.present?
     houses = houses.where("price <= ?", maxprice) if maxprice.present?

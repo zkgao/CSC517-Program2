@@ -17,6 +17,8 @@ class User < ApplicationRecord
     if ( companyid == nil )
       false
     else true
+    end
+   end
   def change_role
     if self.role == :househunter
       self.role ||= :realtor
@@ -24,6 +26,4 @@ class User < ApplicationRecord
       self.role ||= :househunter
     end
   end
-
-end
 end
