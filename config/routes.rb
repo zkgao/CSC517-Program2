@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interests
   resources :inquiries
   devise_for :users
   resources :users
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :houses
   resources :pictures
   post '/houses/:house_id', to: 'houses#reply'
+  get '/users/inquiries/:userid', to: 'inquires#hshow'
 
 
   devise_for :admins
