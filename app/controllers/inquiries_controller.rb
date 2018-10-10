@@ -60,6 +60,10 @@ class InquiriesController < ApplicationController
     end
   end
 
+  def hshow
+    @inquiry=Inquiry.find(params[:userid])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inquiry
@@ -70,4 +74,5 @@ class InquiriesController < ApplicationController
     def inquiry_params
       params.require(:inquiry).permit(:houseid, :userid, :subject, :msg)
     end
+
 end
