@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate!
   before_action :judge_realtor, except: [:index, :show]
   before_action :set_house, only: [:show, :edit, :update, :destroy]
   before_action
@@ -162,11 +162,25 @@ class HousesController < ApplicationController
   end
 
   def judge_realtor
-    if current_user.realtor? != true
+    if !current_admin && current_user.realtor? != true
       respond_to do |format|
         format.html { redirect_to '/users/edit' , notice: 'You should choose an existing real estate company before action.' }
       end
     end
   end
 
+  def authenticate!
+    # :authenticate_admin! || :authenticate_user!
+    # @current_user = admin_signed_in? ? current_admin : current_user
+
+    if user_signed_in?
+      puts 'aaa'
+      authenticate_user!
+    elsif admin_signed_in?
+      puts 'bbb'
+      authenticate_admin!
+    else
+      authenticate_user!
+    end
+  end
 end
