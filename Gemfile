@@ -6,8 +6,8 @@ ruby '2.5.1'
 gem 'carrierwave'
 
 gem 'devise'
-#gem 'pg'
-gem 'sqlite3'
+gem 'pg'
+#gem 'sqlite3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
