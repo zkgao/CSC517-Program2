@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get "/adminmanage" => "home#adminindex"
   get "/admin/users" => "users#index"
   post '/houses/:house_id', to: 'houses#reply'
-  get '/users/inquiries/:userid', to: 'inquires#hshow'
+  #get '/users/inquiries/:userid', to: 'inquires#hshow'
+  get '/users/showinquiry/:id', to: 'users#showinquiry'
 end
