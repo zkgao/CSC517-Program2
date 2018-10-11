@@ -40,17 +40,23 @@
   <% if current_user.role == 'hunter' %>
     <br>
     <br>
-    <div style=";font-size:20px;">INFOs as hunter</div>
+    <div style=";font-size:20px;">INFOs as a hunter</div>
     <br>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :conteact%><br />
+      <%= f.text_field :contact, autocomplete: "contact" %>
     </div>
+
+    <div class="field">
+      <%= f.label :phone%><br />
+      <%= f.text_field :phone, autocomplete: "phone" %>
+    </div>
+
   <% elsif current_user.role == 'realtor'%>
     <br>
     <br>
-    <div style=";font-size:20px;">INFOs as realtor</div>
+    <div style=";font-size:20px;">INFOs as a realtor</div>
     <br>
 
     <div class="field">
