@@ -13,11 +13,10 @@
         </div>
     <% end %>
 
-    <%= hidden_field_tag('picture[house_id]', @house.house_id) %>
-
+    <%= hidden_field_tag('picture[house_id]', @house.id) %>
     <p>
       <%= form.label 'Upload Pictures' %><br />
-      <%= form.file_field :picture_url %>
+      <%= form.file_field :picture_url , :required => 'required'%>
       <%= form.hidden_field :picture_url_cache %>
     </p>
 

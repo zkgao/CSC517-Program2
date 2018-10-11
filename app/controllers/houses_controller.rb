@@ -10,7 +10,7 @@ class HousesController < ApplicationController
   def index
     @houses = House.all
     @houses.each do |house|
-      house.contact_information_for_listing_realtor = User.find_by(id: house.contact_information_for_listing_realtor).email
+      house.contact_information_for_listing_realtor = User.find_by(id: house.contact_information_for_listing_realtor).phone
     end
 
     respond_to do |format|
@@ -23,8 +23,8 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
-    @picture = Picture.find_by(house_id: @house.house_id)
-    @inquiries = Inquiry.where(houseid: @house.house_id)
+    @picture = Picture.find_by(id: @house.id)
+    @inquiries = Inquiry.where(houseid: @house.id)
     @user_ids = @inquiries.select('userid')
     userids = Array.new(@user_ids.length)
 
@@ -51,7 +51,7 @@ class HousesController < ApplicationController
 
   # GET /houses/1/edit
   def edit
-    #@house = House.find(params[:house_id])
+    #@house = House.find(params[:id])
     if current_user.id != @house.contact_information_for_listing_realtor
       respond_to do |format|
         format.html { redirect_to houses_url, notice: 'No access to edit this house!' }
@@ -101,7 +101,7 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   # DELETE /houses/1.json
   def destroy
-    #@house = House.find(params[:house_id])
+    #@house = House.find(params[:id])
     if current_user != User.find_by(id: @house.contact_information_for_listing_realtor)
       respond_to do |format|
         format.html { redirect_to houses_url , notice: 'No access to destroy this house!' }
@@ -123,12 +123,12 @@ class HousesController < ApplicationController
   #       format.html { redirect_to @house , notice: 'No rights!' }
   #     end
   #   else
-  #     @potential_buyers = Potential_buyers.select('buyer_id').where(house_id: params[:house_id])
+  #     @potential_buyers = Potential_buyers.select('buyer_id').where(id: params[:id])
   #   end
   # end
 
   def reply
-    @house = House.find_by(house_id: params[:inquiry][:house_id])
+    @house = House.find_by(id: params[:inquiry][:id])
     if current_user.companyid != User.find_by(id: @house.contact_information_for_listing_realtor).companyid
       respond_to do |format|
         format.html { redirect_to @house , notice: 'No access to reply!' }
@@ -149,12 +149,12 @@ class HousesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_house
     # @house = House.find(params[:id]
-    @house=House.find_by(house_id: params[:id])
+    @house=House.find_by(id: params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def house_params
-    params.require(:house).permit(:house_id, :location, :square_footage, :year_built, :style, :list_price, :floors, :basement, :current_house_owner)
+    params.require(:house).permit(:id, :location, :square_footage, :year_built, :style, :list_price, :floors, :basement, :current_house_owner)
   end
 
   def inquiry_params
