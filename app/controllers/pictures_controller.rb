@@ -5,8 +5,8 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.where(house_id: params[:format])
-    @house = House.find_by(house_id: params[:format])
+    @pictures = Picture.where(id: params[:format])
+    @house = House.find_by(id: params[:format])
   end
 
   # GET /pictures/1
@@ -19,7 +19,7 @@ class PicturesController < ApplicationController
   def new
     if is_this_realtor(params[:format])
       @picture = Picture.new
-      @house = House.find_by(house_id: params[:format])
+      @house = House.find_by(id: params[:format])
     else
       redirect_to '/pictures.' + params[:format], notice: 'No access to add picture.'
     end
@@ -89,7 +89,7 @@ class PicturesController < ApplicationController
   end
 
   def is_this_realtor(houseid)
-    house = House.find_by(house_id: houseid)
+    house = House.find_by(id: houseid)
     companyid = User.find_by(id: house.contact_information_for_listing_realtor).companyid
     if current_user.companyid != companyid
       return false
