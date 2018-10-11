@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  # devise_for :admins
   devise_for :admins, :path =>'', :path_names => {:sign_in => "iamgoddamnadmin"}
   resources :inquiries
   devise_for :users
   resources :interests
   resources :inquiries
- resources :users
+  resources :users
   scope "/admins" do
     resources :users
   end
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   resources :searches
   resources :houses
   resources :pictures
-
 
 
 
