@@ -12,13 +12,20 @@
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
+<% if current_user %>
+<% if current_user.role=="househunter"  %>
 <br>
-<p style="text-align:center;color:red;font-size:60px;">HSBTS</p>
+<p style="text-align:center;color:red;font-size:60px;">Welcome, House hunter</p>
 
 <br><br>
 
 </p>
-<p style="text-align:center;color:red;font-size:30px;">Blaaaaaaaaaaaaaaaaank</p>
+<p style="text-align:center;color:red;font-size:30px;">
+  <%= link_to 'View Companies',real_estate_companies_path %>
+  <%= link_to 'View Houses',houses_path %>
+  <%= link_to 'New Interest',new_interest_path %>
+  <%= link_to 'New Inquiry',new_inquiry_path%>
+  <%= link_to 'View Inquiries','/users/showinquiry/'+current_user.id %>
+</p>
 </body>
 </html>
