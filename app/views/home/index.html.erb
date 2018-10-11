@@ -25,7 +25,7 @@
   <%= link_to 'View Houses',houses_path %>
   <%= link_to 'New Interest',new_interest_path %>
   <%= link_to 'New Inquiry',new_inquiry_path%>
-  <%= link_to 'View Inquiries','/users/showinquiry/'+current_user.id %>
+  <%= link_to 'View Inquiries','/users/showinquiry/'+current_user.id.to_s %>
 </p>
     <% end %>
   <% end %>
