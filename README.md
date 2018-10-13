@@ -1,18 +1,18 @@
 # README
 Deployed on https://nameless-shore-74763.herokuapp.com
+
 ### Admin:
 You could get into admin manage page by type in the url:
 `https://nameless-shore-74763.herokuapp.com/iamgoddamnadmin`, this will lead you to admin log-in page,
 you could log in with account:`777@hotmail.com` and password `1234qwer`.
 Basically you could find everything you need in the admin's home page.
 
-###Realtor
+### Realtor
 Realtor need to first log in into the home page https://nameless-shore-74763.herokuapp.com. if you just register as a realtor, you need to click edit profile  to edit your information.You can also chose a company to join or regisiter your new company in this link.
 After you finish edit profile, you can click Manage houses to view all the houses and you can add a new house here.Also, you can click edit or destroy to do something about your own houses. Other than that, you can click the 'show' of any house to view the information of that house , add a picture , edit the picture, view the inquiry ,view the potential buyer or reply to some inquiry at this page.
 You can also click the Manage Profile and company to edit your information or view your company and do some thing about it.
 
-
-###Househunter
+### Househunter
 Househunter need to first log in into the home page https://nameless-shore-74763.herokuapp.com. if you just register as a househunter, you need to click edit profile  to edit your information.
 After that, in your home page, you can click 'view companies'' to see all the companies. You can also click 'view houses'to view all the houses and if you're interested in anyone, you can click 'add to my interest' to add it to your  interest list. For each house, you can also click show to see the detail of this house and the picture of it.
 The Homepage also include the 'search Houses' which allow you to search the house based in year built , the range of price or the range of square footage.
