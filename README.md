@@ -14,8 +14,8 @@ You can also click the Manage Profile and company to edit your information or vi
 
 ### Househunter
 Househunter need to first log in into the home page https://nameless-shore-74763.herokuapp.com. if you just register as a househunter, you need to click edit profile  to edit your information.
-After that, in your home page, you can click 'view companies'' to see all the companies. You can also click 'view houses'to view all the houses and if you're interested in anyone, you can click 'add to my interest' to add it to your  interest list. For each house, you can also click show to see the detail of this house and the picture of it.
-The Homepage also include the 'search Houses' which allow you to search the house based in year built , the range of price or the range of square footage.
+After that, in your home page, you can click 'view companies' to see all the companies. You can also click 'view houses'to view all the houses and if you're interested in anyone, you can click 'add to my interest' to add it to your  interest list. For each house, you can also click show to see the detail of this house and the picture of it.
+The Homepage also include the 'search Houses' which allow you to search the house based on year built and the range of price .
 Moreover, the homepage have 'view interest',where you can view all the houses in your interest list and you can click 'send a inquiry' to send a inquiry for a specific house, this action will automatically send a deafult message to this house and you can edit the content anytime you want to.
 Finally, you can click the 'view inquiry'to view all the inquiry you send and edit any of it.
 
