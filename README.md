@@ -18,5 +18,7 @@ After that, in your home page, you can click 'view companies' to see all the com
 The Homepage also include the 'search Houses' which allow you to search the house based on year built and the range of price .
 Moreover, the homepage have 'view interest',where you can view all the houses in your interest list and you can click 'send a inquiry' to send a inquiry for a specific house, this action will automatically send a deafult message to this house and you can edit the content anytime you want to.
 Finally, you can click the 'view inquiry'to view all the inquiry you send and edit any of it.
+### Test
+We test the controller of inquiry and the model of admin.you can see the code in the test folder/
 
 PS: we were kind of messed up with 'back' button, so if it not works plz use back button in your browser. Sorry about that
